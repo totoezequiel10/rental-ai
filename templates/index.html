@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>📥 Ingreso de datos</h2>
+<form action="/procesar" method="post">
+    <textarea name="texto" rows="4" placeholder="Pegá los datos aquí…"></textarea><br>
+    <button type="submit">Procesar</button>
+</form>
+
+{% if mensaje %}
+<div style="margin:15px 0; padding:10px; background:#1B1B1B; border-left:4px solid #00D2FF;">
+    {{ mensaje }}
+</div>
+{% endif %}
+
+<form method="get" action="/" style="margin:20px 0;">
+    <input type="text" name="q" placeholder="🔍 Buscar cliente o equipo..."
+           value="{{ busqueda if busqueda else '' }}">
+    <button type="submit">Buscar</button>
+</form>
+
+<a class="export-btn" href="/exportar">📄 Exportar a Excel</a>
+
+<h3>📋 Listado de Rentals</h3>
+
+<table>
+    <tr>
+        <th>Nombre</th>
+        <th>DNI</th>
+        <th>Teléfono</th>
+        <th>Email</th>
+        <th>Domicilio</th>
+        <th>Equipo</th>
+        <th>Retiro</th>
+        <th>Devolución</th>
+        <th>Dirección Evento</th>
+        <th>Estado</th>
+        <th>Acciones</th>
+    </tr>
+    {% for row in lista %}
+    <tr class="{{ row['estado'] }}">
+        <td>{{ row["nombre"] }}</td>
+        <td>{{ row["dni"] }}</td>
+        <td>{{ row["telefono"] }}</td>
+        <td>{{ row["email"] }}</td>
+        <td>{{ row["domicilio"] }}</td>
+        <td>{{ row["equipo"] }}</td>
+        <td>{{ row["fecha_retiro"] }}</td>
+        <td>{{ row["fecha_devolucion"] }}</td>
+        <td>{{ row["direccion_evento"] }}</td>
+        <td>{{ row["estado"] }}</td>
+        <td class="actions">
+            {% if row["estado"] != "devuelto" %}
+            <form action="/marcar_devuelto/{{ row['rental_id'] }}" method="post">
+                <button>✔ Devuelto</button>
+            </form>
+            {% endif %}
+
+            <a href="/editar/{{ row['rental_id'] }}">
+                <button>✏️ Editar</button>
+            </a>
+
+            <form action="/eliminar/{{ row['rental_id'] }}" method="post">
+                <button class="red">🗑 Eliminar</button>
+            </form>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

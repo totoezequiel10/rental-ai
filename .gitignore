@@ -1,0 +1,4 @@
+.env
+venv/
+rental.db
+__pycache__/

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ title if title else "Rental AI" }}</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            background: #0A0A0A;
+            color: #FFFFFF;
+        }
+
+        header {
+            background: #1B1B1B;
+            padding: 20px;
+            text-align: center;
+            font-size: 24px;
+            font-weight: 700;
+            color: #ff9500;
+            box-shadow: 0px 4px 10px rgba(0,0,0,0.4);
+        }
+
+        main {
+            padding: 20px;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        button {
+            background: #ffa200;
+            color: #0A0A0A;
+            border: none;
+            padding: 10px 18px;
+            font-weight: 600;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: 0.2s ease;
+        }
+
+        button:hover {
+            background: #00aacc;
+        }
+
+        input, textarea {
+            width: 100%;
+            font-size: 16px;
+            padding: 10px;
+            margin: 6px 0;
+            border: 2px solid #1B1B1B;
+            border-radius: 6px;
+            background: #121212;
+            color: #FFF;
+        }
+
+        table {
+            border-collapse: separate;
+            border-spacing: 0 10px;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        th {
+            text-align: left;
+            padding: 12px;
+            background: #1B1B1B;
+            color: #ffae00;
+            font-weight: 600;
+        }
+
+        td {
+            padding: 12px;
+            background: #121212;
+            color: #FFFFFF;
+        }
+
+        .activo td {
+            border-left: 4px solid #ffa600;
+        }
+
+        .devuelto td {
+            border-left: 4px solid #ff6600;
+        }
+
+        .actions button {
+            margin-right: 6px;
+            padding: 6px 10px;
+            background: #FFDD00;
+            color: #0A0A0A;
+            font-weight: 600;
+            border-radius: 4px;
+        }
+
+        .actions button.red {
+            background: #FF4D4F;
+            color: #FFF;
+        }
+
+        a.export-btn {
+            display: inline-block;
+            margin: 12px 0;
+            background: #FFDD00;
+            color: #0A0A0A;
+            font-weight: 700;
+            text-decoration: none;
+            padding: 10px 18px;
+            border-radius: 6px;
+        }
+    </style>
+
+</head>
+<body>
+
+<header>
+    🚀 RENTAL AI ADMIN PANEL
+</header>
+
+<main>
+    {% block content %}
+    {% endblock %}
+</main>
+
+</body>
+</html>

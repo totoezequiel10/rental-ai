@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>✏️ Editar Rental</h2>
+
+<form method="post">
+    <label>Nombre</label>
+    <input name="nombre" value="{{ data.nombre }}">
+
+    <label>Teléfono</label>
+    <input name="telefono" value="{{ data.telefono }}">
+
+    <label>Email</label>
+    <input name="email" value="{{ data.email }}">
+
+    <label>Domicilio</label>
+    <input name="domicilio" value="{{ data.domicilio }}">
+
+    <label>Equipo</label>
+    <input name="equipo" value="{{ data.equipo }}">
+
+    <label>Fecha Retiro</label>
+    <input name="fecha_retiro" value="{{ data.fecha_retiro }}">
+
+    <label>Fecha Devolución</label>
+    <input name="fecha_devolucion" value="{{ data.fecha_devolucion }}">
+
+    <label>Dirección Evento</label>
+    <input name="direccion_evento" value="{{ data.direccion_evento }}">
+
+    <label>Observaciones</label>
+    <input name="observaciones" value="{{ data.observaciones }}">
+
+    <button type="submit">💾 Guardar Cambios</button>
+</form>
+
+<br>
+<a href="/">
+    <button>⬅️ Volver al panel</button>
+</a>
+
+{% endblock %}

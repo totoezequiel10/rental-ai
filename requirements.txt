@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+openai
+pydantic
+jinja2
+python-dotenv
+python-multipart
+requests
+openpyxl
